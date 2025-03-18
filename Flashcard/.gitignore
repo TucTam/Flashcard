@@ -13,7 +13,6 @@ __pycache__/
 .vscode/
 .git
 venv/
-migrations/
 instance/
 
 

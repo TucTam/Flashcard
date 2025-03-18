@@ -6,7 +6,7 @@ class Config:
     DEBUG = False
     TESTING = False
     SECRET_KEY = os.getenv('SECRET_KEY', "fallback-secret")
-    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL', "sqlite:///default.db")
+    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL_WEB', "sqlite:///default.db")
     
     # Use __file__ to get the current file path and work from there
     BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
@@ -25,7 +25,7 @@ class DevelopmentConfig(Config):
 class ProductionConfig(Config):
     """Production-specific settings"""
     DEBUG = False
-    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL')  # Use production DB
+    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL_WEB')  # Use production DB
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     
 class TestingConfig(Config):
