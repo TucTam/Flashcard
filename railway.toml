@@ -1,2 +1,2 @@
 [build]
-builder = "DOCKER-COMPOSE"
+builder = "DOCKERIMAGE"
