@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('create.static', filename='create/css/create.css') }}">
+    <link rel="stylesheet" href="{{ url_for('create.static', filename='create/css/import_file.css') }}">    
+{% endblock %}
+
+{% block content %}
+{% include 'partials/sidenav.html' %}
+
+
+    <div id="main-content">
+        <h1>Flashcard Types</h1>
+        <div id="fc_types_container">
+            <a href="{{ url_for('create.meta_create', pack_type='basic_create') }}" class="fc_type">
+                <h3>Basic</h3>
+                <p>Key can be image or text and Value can be image or text</p>
+            </a>
+
+            <a href="{{ url_for('create.meta_create', pack_type='import_table') }}" class="fc_type">
+                <h3>Import table</h3>
+                <p>supported extensions .csv</p>
+            </a>
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('create.static', filename='create/js/create.js') }}"></script>
+
+{% endblock  %}

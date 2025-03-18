@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{url_for('manage.static', filename ='manage/css/manage.css')}}">
+{% endblock  %}
+
+{% block content %}
+{% include 'partials/sidenav.html' %}
+
+
+    <div id="main-content">
+        <h1>Manage flashcards</h1>
+        <hr><br>
+        <div id="manage-container">
+            <form action="{{url_for('manage.manage_action')}}" method="post" onsubmit="return confirmSubmit()">
+                <section id="manage-filters">
+                    <input type="checkbox" name="check-all" id="check-all" onclick="check_all()">
+                    <select name="actions" id="actions">
+                        <option value="action">Actions</option>
+                        <option value="edit">Edit details</option>
+                        <option value="delete">Delete</option>
+                        <option value="download">Download</option>
+                    </select>
+                    <button type="submit" id="submit-manage">submit action</button>
+                </section>
+                <hr>
+                <section id="display-packs-container">
+                    {% for packmeta in flashcard_packs %}
+                    <section class="manage-pack">
+                        <input type="checkbox" name="pack-{{packmeta.id}}" id="pack-{{packmeta.id}}" onclick="check_pack('pack-{{packmeta.id}}')">
+                        <div id="cardpack-container">
+                            <h3>{{ packmeta.name }}</h3>
+                            <p>{{ packmeta.description }}</p>
+                            <p>{{ packmeta.created_at.strftime('%Y-%m-%d')}}</p>
+                        </div>
+                    </section>
+                    {% endfor %}                    
+                </section>
+
+            </form>
+
+        </div>
+
+    </div>
+
+<script src="{{ url_for('manage.static', filename = 'manage/js/manage.js') }}"></script>
+
+{% endblock  %}

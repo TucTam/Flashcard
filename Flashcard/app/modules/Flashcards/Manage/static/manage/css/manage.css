@@ -1,0 +1,95 @@
+#manage-container {
+    width: 100%;
+    height: 100%;
+}
+
+#manage-container form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#manage-filters {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    gap: 20px;
+}
+
+#manage-filters select {
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#submit-manage {
+    padding: 0 0 0 0;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid rgb(110, 110, 110);
+    font-size: 1rem;
+    font-weight: lighter;
+    width: 150px;
+    min-width: 150px;
+    max-width: 150px;
+
+    height: 38px;
+    min-height: 38px;
+    max-height: 38px;
+}
+
+#submit-manage:hover {
+    background-color: rgb(247, 247, 247);
+}
+
+#manage-filters input[type="checkbox"] {
+    align-self: flex-start;
+    margin: 10px;
+    margin-right: 0px;
+    min-width: 20px;
+    transform: scale(1.4);
+    max-width: 20px;
+    max-height: 20px;
+}
+
+#display-packs-container {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+.manage-pack {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: left;
+}
+
+.manage-pack input[type="checkbox"] {
+    align-self: flex-start;
+    margin: 10px;
+    margin-right: 20px;
+    min-width: 20px;
+    transform: scale(1.4);
+    /* Scale the checkbox size */
+    max-width: 20px;
+    max-height: 20px;
+}
+
+#cardpack-container {
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0px 0px 5px 1px rgb(206, 206, 206);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden;
+    white-space: normal;
+    word-break: break-word;
+}

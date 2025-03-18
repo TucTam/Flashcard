@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('create.static', filename='create/css/create_card.css') }}">
+{% endblock %}
+
+{% block content %}
+{% include 'partials/sidenav.html' %}
+
+    <div id="main-content">
+        <div class="basic_fc_cont">
+            <h1 id="create_title">Create -- Step 1.</h1>
+            {% if packtype %}
+            <form id="create-meta" action="{{ url_for('create.meta_create', pack_type=packtype) }}" method="post">
+                <hr>
+
+                <label for="name">
+                    Flashcard Pack name
+                    {% if error %}
+                        ---- <i>{{error}}</i>
+                    {% endif %}
+                </label>
+
+                <input type="text" id="name" name="name" required>
+                <label for="description">Pack Description</label>
+                <textarea id="description" name="description"></textarea>
+                <button type="submit">Next</button>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="{{ url_for('create.static', filename='create/js/create.js') }}"></script>
+
+{% endblock  %}

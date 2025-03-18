@@ -1,0 +1,22 @@
+.edit-item-container {
+    padding: 20px;
+    box-shadow: 0px 0px 5px 1px rgb(206, 206, 206);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.edit-item-container ul {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.new-info-section {
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+    justify-content: left;
+    gap: 10px;
+}

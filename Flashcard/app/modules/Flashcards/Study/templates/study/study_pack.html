@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('study.static', filename='study/css/study_pack.css') }}">
+    <link rel="stylesheet" href="{{ url_for('study.static', filename='study/css/flashcard.css') }}">
+
+{% endblock %}
+
+{% block content %}
+{% include 'partials/sidenav.html' %}
+    <div id="main-content">
+        <div id="study-pack-container">
+            {% if packname%}
+            <h1>{{packname}}</h1>
+            <hr><br>
+            {% if keyheaders or valueheaders %}
+                <div class="instructions" id="create-import-instructions">
+                    <h2>INSTRUCTIONS</h2>
+                    <ul>
+                        {% if keyheaders %}
+                            <li><b>Question: </b>
+                                {% for kh in keyheaders %}
+                                    {{kh}}{% if kh != keyheaders[-1] %}, {% endif %}
+                                {% endfor %}
+                            </li>
+                        {% endif %}
+                        {% if valueheaders %}
+                            <li><b>Answer: </b>
+                                {% for vh in valueheaders %}
+                                    {{vh}}{% if vh != valueheaders[-1] %}, {% endif %}
+                                {% endfor %}
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <br>
+                <hr>
+                <br>                
+            {% endif %}
+
+            <div id="screen-container">
+                <div class="flashcard-screen">
+                    {% include 'study/flashcard/flashcard.html' %}
+                </div>
+                <section id="screen-btn-section">
+                    {% if pack %}
+                        <button onclick="previous_card(pack)">Previous</button>
+                        <button onclick="next_card(pack)">Next</button>
+                    {% endif %}
+                </section>                
+            </div>
+            {% endif %}
+
+            <div id="card-list">
+                <br>
+                <h3>Terms: Click to reveal the answer</h3>
+                <br>
+                {% for card in pack %}
+                    <div class="card-container" onclick="blur_unblur('card-answer-{{card.id}}')">
+                        <section class="card-question-container">
+                            <p class="card-question">
+                                {% if card.key.key is sequence and card.key.key is not string %}
+                                {{card.key.key | join(", ")}}
+                                {% else %}
+                                {{card.key.key}}
+                                {% endif %}
+                            </p>                            
+                        </section>
+
+                        <div class="vertical-line"></div>
+                        <section class="card-answer-container">
+
+                            <p class="card-answer" id="card-answer-{{card.id}}">
+                                {% if card.value.value is sequence and card.value.value is not string %}
+                                {{card.value.value | join(", ")}}
+                                {% else %}
+                                {{card.value.value}}
+                                {% endif %}
+                            </p>
+                        </section>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+    </div>
+    <script>
+        const pack = {{ pack|tojson }};
+    </script>
+    <script src="{{ url_for('study.static', filename='study/js/basic_card.js') }}"></script>
+
+{% endblock  %}

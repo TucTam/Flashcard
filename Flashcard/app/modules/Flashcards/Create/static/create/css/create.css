@@ -1,0 +1,24 @@
+#fc_types_container {
+    display: flex;
+    gap: 10px;
+}
+
+.fc_type {
+    width: 100%;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+    background-color: var(--click-color);
+    cursor: pointer;
+    text-decoration: none;
+    color: #000000;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.fc_type:hover {
+    background-color: var(--click-hovercolor);
+}

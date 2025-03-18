@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('study.static', filename='study/css/study.css') }}">
+{% endblock %}
+
+{% block content %}
+{% include 'partials/sidenav.html' %}
+
+    <div id="main-content">
+        <h1>Select a pack to study</h1>
+        <hr>
+        <br>
+        <div id="cardpack-list-container">
+            {% for pack in database_packs %}
+                <div class="cardpack-container">
+                    <a href="{{url_for('study.study_pack', pack_name=pack.name)}}">
+                        <h2>
+                            {{pack.name[:50]}}
+                            {% if pack.name|length > 50 %}...{% endif %}
+                        </h2>
+                        {% if pack.description %}
+                            <p>
+                                {{ pack.description[:50] }}
+                                {% if pack.description|length > 50 %}...{% endif %}
+                            </p>
+                        {% else %}
+                            <p>No description</p>
+                        {% endif%}
+                        <time datetime="{{ pack.datetime }}">Created At: {{ pack.created_at.strftime('%Y-%m-%d') }}</time>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+{% endblock  %}

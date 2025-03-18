@@ -1,0 +1,94 @@
+:root {
+    --sidebar-width: 140px;
+    --click-txt-color: black;
+    --click-color: #dbe4e4;
+    --click-hovercolor: #adbeda;
+    --font-size: 1rem;
+    --line-height: 1.5;
+    --font-weight: 2px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+}
+
+body {
+    width: auto;
+    height: auto;
+}
+
+button,
+p,
+ul,
+li,
+a {
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+    font-weight: var(--font-weight);
+    list-style-type: none;
+    text-decoration: none;
+    color: black;
+}
+
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+body {
+    background-color: #ffffff;
+    width: 100vw;
+    height: 100vh;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+button,
+input[type="submit"] {
+    min-width: 200px;
+    min-height: 50px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--click-color);
+    color: var(--click-txt-color);
+    cursor: pointer;
+    font-size: large;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background-color: var(--click-hovercolor);
+}
+
+input {
+    min-width: 200px;
+}
+
+textarea {
+    padding: 5px;
+    min-width: 300px;
+    min-height: 2rem;
+}
+
+input[type="file"]::file-selector-button {
+    border-radius: 10px;
+    padding: 10px;
+    background-color: var(--click-color);
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: var(--click-hovercolor);
+}

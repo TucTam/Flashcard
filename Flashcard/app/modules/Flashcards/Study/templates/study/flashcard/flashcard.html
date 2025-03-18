@@ -1,0 +1,45 @@
+<div class="flashcard" onclick="flip_card()">
+    <section id="key-section">
+        <h2 id="fc-k-header">Question 1</h2>
+        <hr>
+        <section id="section-question">
+            {% if pack|length > 0 %}
+                {% if pack[0].key.key is sequence and pack[0].key.key is not string %}
+                    <section class="img-contain">
+                        <img src="../../../../../../static/uploads/pack-{{pack[0].pack_id}}/{{pack[0].key.key_file}}" id="key-img" alt="">
+                    </section>
+                    <p>{{pack[0].key.key | join(", ")}}</p>
+                {% else %}
+                    <section class="img-contain">
+                        <img src="../../../../../../static/uploads/pack-{{pack[0].pack_id}}/{{pack[0].key.key_file}}" id="key-img" alt="">
+                    </section>
+                    <p>{{pack[0].key.key}}</p>
+                {% endif %}
+            {% elif pack|length == 0%}
+                <p>No cards</p>
+            {% endif %}
+        </section>
+
+    </section>
+    <section id="value-section">
+        <h2 id="fc-v-header">Answer 1</h2>
+        <hr>
+        <section id="section-answer">
+            {% if pack|length > 0 %}
+                {% if pack[0].value.value is sequence and pack[0].value.value is not string %}
+                <section class="img-contain">
+                    <img src="../../../../../../static/uploads/pack-{{pack[0].pack_id}}/{{pack[0].value.value_file}}" id="value-img" alt="">
+                </section>
+                <p>{{pack[0].value.value | join(", ")}}</p>
+                {% else %}
+                <section class="img-contain">
+                    <img src="../../../../../../static/uploads/pack-{{pack[0].pack_id}}/{{pack[0].value.value_file}}" id="value-img" alt="">
+                </section>
+                <p>{{pack[0].value.value}}</p>
+                {% endif %}
+            {% elif pack|length == 0%}
+                <p>No cards</p>
+            {% endif %}
+        </section>
+    </section>
+</div>

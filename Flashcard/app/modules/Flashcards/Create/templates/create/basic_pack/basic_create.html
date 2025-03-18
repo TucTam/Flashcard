@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('create.static', filename='create/css/create_card.css') }}">
+{% endblock %}
+
+{% block content %}
+{% include 'partials/sidenav.html' %}
+    <div id="main-content">
+        <h1 id="basic-create-step2">Create -- Step 2.</h1>
+        <div class="basic_fc_cont">
+            <form id="create-flashcard" action="{{ url_for('create.create_flashcard') }}" method="post" enctype="multipart/form-data">
+                <hr>
+                {% include 'create/basic_pack/inputlabels.html' %}
+                <button id="create_card" type="submit">Create Flashcards</button>
+                <button id="cancel-create"  type="button" onclick="cancel_create()">Cancel</button>
+                <button id="add_card_field" type="button" onclick="add_inputs()">More</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{{ url_for('create.static', filename='create/js/create.js') }}"></script>
+
+{% endblock  %}

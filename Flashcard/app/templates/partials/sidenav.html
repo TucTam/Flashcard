@@ -1,0 +1,12 @@
+<nav id="sidemenu">
+    <div id="sm-logo">
+        <h2>Flashcard App</h2>
+    </div>
+    <hr>
+    <ul>
+        <li><a class="sm-link" href="{{ url_for('main.index') }}">Home</a></li>
+        <li><a class="sm-link" href="{{ url_for('create.create_index') }}">Create</a></li>
+        <li><a class="sm-link" href="{{ url_for('study.study_index') }}">Study</a></li>
+        <li><a class="sm-link" href="{{ url_for('manage.manage_index') }}">Manage</a></li>
+    </ul>
+</nav>

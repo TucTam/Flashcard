@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('create.static', filename='create/css/create.css') }}">
+    <link rel="stylesheet" href="{{ url_for('create.static', filename='create/css/import_file.css') }}">
+
+{% endblock %}
+
+{% block content %}
+{% include 'partials/sidenav.html' %}
+
+
+    <div id="main-content">
+        <h1 id="basic-create-step2">Create -- Step 2: Import Table</h1>
+        <hr><br>
+        <div id="main-import-container">
+            <div class="instructions" id="create-import-instructions">
+                    <h2>INSTRUCTIONS</h2>
+                <ul>
+                    <li>Please upload a .CSV or Exel (.xls or .xlsx) file containing the flashcards you want to import.</li>
+                    <li>Ensure that in the .CSV file each column is separated with a semicolon ";"</li>
+                    <li>The file should have at least two columns</li>
+                    <li>If the file contains headers (column names), make sure they are in the first row, then check the checkbox and input the headers each separated by a semicolon ";"</li>
+                    <li>Ensure that the file is properly formatted to avoid any errors during the import process.</li>
+                </ul>
+            </div>
+            <hr>
+            <form id="upload-fc-form" action="{{ url_for('create.import_create') }}" method="post" enctype="multipart/form-data" onsubmit="return validateInputForm(event)">
+                <label for="file">Upload Your File</label>
+                <input type="file" name="table" id="table" accept=".csv, .xls, .xlsx">
+                <section id="input-file-metadata">
+                    <label for="checkbox" id="header-name-check" >File contains headers</label>
+                    <input type="checkbox" name="has-header" id="has-header" onchange="nameOfHeaders(this)">
+                </section>
+                <section id="input-header-names-cont">
+                    <hr>
+                    <section>
+                        <label for="text">Question column numbers starting at 1 from left to right separated by a semicolon (;)</label>
+                        <input type="text" name="qheaders" id="question-headers" placeholder="1;4;5">
+                    </section>
+                    <section>
+                        <label for="text">Answer column numbers starting at 1 from left to right separated by a semicolon (;)</label>
+                        <input type="text" name="aheaders" id="answer-headers" placeholder="2;3;6">
+                    </section>
+                    <hr>
+
+                </section>
+                <input type="submit" value="Submit">
+                <button id="cancel-create" type="button" onclick="cancel_create()">Cancel</button>
+            </form>
+        </div>
+    </div>
+    <script src="{{ url_for('create.static', filename='create/js/create.js') }}"></script>
+    <script src="{{url_for('create.static', filename='create/js/import.js')}}"></script>
+{% endblock  %}

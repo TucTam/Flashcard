@@ -1,0 +1,46 @@
+.flashcard {
+    width: 100%;
+    height: 100%;
+}
+
+.flashcard p {
+    font-weight: medium;
+    font-size: 2.5rem;
+}
+
+.flashcard hr {
+    width: 100%;
+}
+
+
+#key-section {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+#value-section {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+#section-question,
+#section-answer {
+    min-width: 500px;
+    min-height: 300px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

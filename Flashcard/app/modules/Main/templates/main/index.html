@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('main.static', filename='main/css/main.css') }}">
+{% endblock %}
+
+
+{% block content %}
+{% include 'partials/sidenav.html' %}
+
+    <div id="main-content">
+        <div id="main-page-container">
+            <h1>Home</h1>
+            <p>Welcome to the Flashcard App. Here you can create, study, and manage your flashcards.</p>
+            <hr>
+            <h2>Instructions</h2>
+            <ul>
+                <li>Create a new flashcard set by clicking on the <a href="{{ url_for('create.create_index')}} ">create page</a></li>
+                <li>Add flashcards to your set by entering a question and answer for each card.</li>
+                <li>Save your flashcard set once you have added all your cards.</li>
+                <li>Alternatively you can import your flashcards using a .csv or excel (.xls or .xlsl) file</li>
+                <li>Study your flashcards by selecting a set and using the "Study" mode.</li>
+                <li>Manage your flashcard sets by editing or deleting them as needed.</li>
+                <li>You can only edit the name and description of the packs as of now</li>
+            </ul>            
+        </div>
+
+    </div>
+
+{% endblock  %}
